@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>RAG Evaluation Report</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+        </style>
+    </head>
+    <body>
+        <h1>RAG Evaluation Report</h1>
+        <div id="summary"></div>
+        <table id="resultsTable">
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Faithfulness</th>
+                    <th>Relevancy</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Populated by JS -->
+            </tbody>
+        </table>
+        <script>
+            const results = {{RESULTS_JSON}};
+            const tbody = document.querySelector('#resultsTable tbody');
+            
+            results.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${row.question || 'N/A'}</td>
+                    <td>${row.faithfulness !== undefined ? row.faithfulness.toFixed(2) : 'N/A'}</td>
+                    <td>${row.answer_relevancy !== undefined ? row.answer_relevancy.toFixed(2) : 'N/A'}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        </script>
+    </body>
+    </html>
+    
