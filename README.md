@@ -84,7 +84,34 @@
     rag-eval --help
     ```
     
-    ## Contributing
+    
+## Architecture
+
+```
+rag_eval/
+├── backends/          # LLM backends (Anthropic, OpenAI)
+├── metrics/           # Evaluation metrics
+│   ├── faithfulness.py
+│   ├── relevancy.py
+│   ├── context_precision.py
+│   └── context_recall.py
+├── report/            # HTML report generation
+├── evaluator.py       # Core evaluation engine
+└── cli.py             # Command-line interface
+```
+
+## HTML Reports
+
+```python
+# Generate a full HTML report with per-question breakdowns
+evaluator.generate_report(results, output="eval_report.html")
+```
+
+## Author
+
+**Abanoub Rodolf Boctor** — [LinkedIn](https://linkedin.com/in/abanoubrodolf) · [GitHub](https://github.com/Abanoubr)
+
+## Contributing
     
     PRs welcome. Please open an issue first to discuss major changes.
     
