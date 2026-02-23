@@ -15,7 +15,7 @@ class AnswerRelevancyMetric(BaseMetric):
     """
 
     def __init__(self) -> None:
-        """Initialise AnswerRelevancyMetric with its canonical name."""
+        """Initialise AnswerRelevancyMetric with its canonical name."""    
         super().__init__(name="answer_relevancy")
 
     def score(self, row: Dict[str, Any], backend: Any) -> float:
